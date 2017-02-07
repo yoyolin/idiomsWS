@@ -1,0 +1,161 @@
+@import url('http://fonts.googleapis.com/css?family=Lato');
+
+body, html{
+  height: 100%;
+  background: #222222;
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+	color: #AAAAAA;
+	font-weight: normal;
+	margin-left:5%;
+}
+
+.container{
+  display: block;
+  position: relative;
+  margin: auto;
+  height: 450px;
+  width: 400px;
+  bottom: 0; left:0; right: 0; top:0;
+  padding: 0;
+}
+
+.idiomsHolder{
+  margin: auto;
+  width: 50%;
+  left:20%
+}
+
+.buttonHolder{
+  margin:auto;
+  width:400px;
+}
+
+.button{
+    background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+    background-image: linear-gradient(top, #f4f1ee, #fff);
+    border-radius: 50%;
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+    float:left;
+    height: 70px;
+    margin: 0 30px 30px 0;
+    position: relative;
+    width: 70px;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+}
+
+.button:after{
+    color:#e9e6e4;
+    content: "";
+    display: block;
+    font-size: 30px;
+    height: 30px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    width: 30px;
+}
+
+.tick:after{
+    content: "✓";
+    left:23px;
+    top:20px;
+}
+
+.cross:after{
+    content: "✖";
+    left: 24px;
+    top: 19px;
+}
+
+.heart:after{
+    content: "♥";
+    left: 24px;
+    top: 19px;
+}
+
+.button:hover{
+    background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+    background-image: linear-gradient(top, #fff, #f4f1ee);
+    color:#0088cc;
+}
+
+.heart:hover:after{
+    color:#f94e66;
+    text-shadow:0px 0px 6px #f94e66;
+}
+
+.flower:hover:after{
+    color:#f99e4e;
+    text-shadow:0px 0px 6px #f99e4e;
+}
+
+.tick:hover:after{
+    color:#83d244;
+    text-shadow:0px 0px 6px #83d244;
+}
+
+.cross:hover:after{
+    color:#eb2f2f;
+    text-shadow:0px 0px 6px #eb2f2f;
+}
+
+
+
+.button:active{
+    background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+    background-image: linear-gradient(top, #efedec, #f7f4f4);
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+}
+
+.button:active:after{
+    color:#dbd2d2;
+    text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+}
+
+#countdown {
+  font-family:'Lato', sans-serif;
+  width: 200px;
+  height: 100px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -50px;
+  color: #AAAAAA;
+  font-size: 5em;
+  text-align: center;
+  font-weight: bold;
+  .opacity(1.0);
+  .transition(opacity 0.4s ease);
+  /* solve for flicker problem */
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+}
+#countdown.puffer {
+  .opacity(0);
+  .transform(scale(1.6,1.6));
+  .transition(all 0.4s ease-out);
+}
+
+/* LESS Mixins */
+.opacity (@opacity: 0.5) {
+	-webkit-opacity: 	@opacity;
+	-moz-opacity: 		@opacity;
+	opacity: 		@opacity;
+}
+.transition (@transition) {
+	-webkit-transition: @transition;
+	-moz-transition:    @transition;
+	-ms-transition:     @transition;
+	-o-transition:      @transition;
+}
+.transform(@string){
+	-webkit-transform: @string;
+	-moz-transform: 	 @string;
+	-ms-transform: 		 @string;
+	-o-transform: 		 @string;
+}

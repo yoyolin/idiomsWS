@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>IdiomsHomePage</title>
+    {% load static %}
+    <link href=" {% static 'css/buttons.css' %}" rel = "stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <form  method="post" action = "{% url 'idiomsapp:idioms'%}">
+            {% csrf_token %}
+            <big><big><h2 text-align = 'center'>中国成语大会现场</h2></big></big>
+            <ul>
+                <li>
+                  <input type="radio" id="easy" name="diff" value="1" checked/>
+                  <label for="easy">小学生</label>
+                  <div class="check"></div>
+                </li>
+
+                <li>
+                  <input type="radio" id="middle" name="diff" value="2">
+                  <label for="middle">初中生</label>
+                  <div class="check"><div class="inside"></div></div>
+                </li>
+
+                <li>
+                  <input type="radio" id="difficult" name="diff" value="3">
+                  <label for="difficult">高中生</label>
+                  <div class="check"><div class="inside"></div></div>
+                </li>
+             </ul>
+                <div align = "center">
+                    <button id="submit" class="submit"  align = "right" >战</button>
+                </div>
+        </form>
+  </div>
+
+</body>
+</html>
+

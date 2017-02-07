@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IdiomsGuess</title>
+    {% load static %}
+    <link href=" {% static 'css/guess.css' %}" rel = "stylesheet">
+    <link href=" {% static 'css/buttons.css' %}" rel = "stylesheet">
+    <script src = "{% static 'js/jquery.js' %}"></script>
+
+</head>
+<body>
+
+    <div class="idiomsHolder" align = "center">
+        <h1> <big><big>
+            <ul class = "idioms"> {{first_idiom.idiom}}</ul>
+            {% for idiom in idioms %}
+               <ul class = "idioms" hidden>{{ idiom.idiom }}</ul>
+            {% endfor %}
+        </big></big>  </h1>
+    </div>
+    <div>
+    <table align = "right" width = 70%>
+        <tr>
+            <td>
+                <div id="countdown"></div>
+            </td>
+            <td>
+               <div class="buttonHolder">
+                    <a href="#" class="button tick" id = "tick"></a>
+                    <a href="#" class="button cross" id = "cross"></a>
+                    <div class = "result" hidden>
+                             <h1>战绩: </h1>
+                    </div>
+                    <div class = "restart" hidden>
+
+                         <form  method="post" action = "{% url 'idiomsapp:home'%}">
+                             {% csrf_token %}
+
+                             <div>
+                                <button id="submit" class="submit"  align = "center">再战</button>
+                              </div>
+                        </form>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    </div>
+</body>
+
+<script src = "{% static 'js/guess.js' %}"></script>
+</html>
